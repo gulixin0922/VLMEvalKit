@@ -353,8 +353,8 @@ class MMMUProDataset(MMMUDataset):
 
     TYPE = 'MCQ_MMMU_Pro'
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, dataset='MMMU_Pro_10c', skip_noimg=True, **kwargs):
+        super().__init__(dataset=dataset, skip_noimg=skip_noimg, **kwargs)
         if 'MMMU_Pro_V' in self.dataset_name:
             self.data['question'] = ['placeholder'] * len(self.data)
 

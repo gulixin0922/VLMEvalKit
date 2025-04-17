@@ -17,6 +17,11 @@ official_headers = {
     'content-type': 'application/json'
 }
 
+proxies = {
+    "http": "http://closeai-proxy.pjlab.org.cn:23128",
+    "https": "http://closeai-proxy.pjlab.org.cn:23128"
+}
+
 
 class Claude_Wrapper(BaseAPI):
 
@@ -122,7 +127,7 @@ class Claude_Wrapper(BaseAPI):
             payload['system'] = self.system_prompt
 
         response = requests.request(
-            'POST', self.url, headers=self.headers, data=json.dumps(payload), timeout=self.timeout * 1.1
+            'POST', self.url, headers=self.headers, data=json.dumps(payload), timeout=self.timeout * 1.1, proxies=proxies
         )
         ret_code = response.status_code
         ret_code = 0 if (200 <= int(ret_code) < 300) else ret_code

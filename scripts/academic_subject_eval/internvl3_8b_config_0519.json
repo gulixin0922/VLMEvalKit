@@ -1,0 +1,32 @@
+{
+    "model": {
+        "internvl3_qwen3_8b_sft_internvl3_chem_x1_geo_x10_bio0512_x1_8000": {
+            "class": "InternVLChat",
+            "model_path": "/mnt/petrelfs/share_data/gulixin/ai4sci_project/checkpoints/internvl3_qwen3_8b_sft_internvl3_chem_x1_geo_x10_bio0512_x1/8000",
+            "version": "V2.0",
+            "use_lmdeploy": false
+        }
+    },
+    "data": {
+        "hle": {
+            "class": "ImageShortQADataset",
+            "dataset": "hle"
+        },
+        "MMMU_DEV_VAL": {
+            "class": "MMMUDataset",
+            "dataset": "MMMU_DEV_VAL"
+        },
+        "MMMU_Pro_10c": {
+            "class": "MMMUProDataset",
+            "dataset": "MMMU_Pro_10c"
+        },
+        "MMSci_DEV_MCQ": {
+            "class": "ImageMCQDataset",
+            "dataset": "MMSci_DEV_MCQ"
+        },
+        "MedXpertQA_MM_test": {
+            "class": "MedXpertQA_MM_test",
+            "dataset": "MedXpertQA_MM_test"
+        }        
+    }
+}

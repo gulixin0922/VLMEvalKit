@@ -1,6 +1,7 @@
 #!/bin/bash
 set -x
 MODEL=${1}
+CONFIG=${2}
 
 MASTER_PORT=${MASTER_PORT:-63669}
 GPUS=${GPUS:-8}
@@ -27,7 +28,7 @@ if [ ${MODEL} == "Qwen2.5-VL-7B" ]; then
         --master_addr=127.0.0.1 \
         --nproc-per-node=$GPUS \
         --master_port=${MASTER_PORT} \
-        run.py --config scripts/academic_subject_eval/qwen2_5_vl_7b_config.json --reuse
+        run.py --config ${CONFIG} --reuse
 fi
 
 if [ ${MODEL} == "Qwen2.5-VL-72B" ]; then
@@ -38,7 +39,19 @@ if [ ${MODEL} == "Qwen2.5-VL-72B" ]; then
         --master_addr=127.0.0.1 \
         --nproc-per-node=$GPUS \
         --master_port=${MASTER_PORT} \
-        run.py --config scripts/academic_subject_eval/qwen2_5_vl_72b_config.json --reuse
+        run.py --config ${CONFIG} --reuse
+fi
+
+if [ ${MODEL} == "InternVL3-8B" ]; then
+    echo "InternVL3-8B infer and eval"
+    export USE_COT=0
+    torchrun \
+        --nnodes=1 \
+        --node_rank=0 \
+        --master_addr=127.0.0.1 \
+        --nproc-per-node=$GPUS \
+        --master_port=${MASTER_PORT} \
+        run.py --config ${CONFIG} --reuse
 fi
 
 if [ ${MODEL} == "InternVL3-78B" ]; then
@@ -51,15 +64,10 @@ if [ ${MODEL} == "InternVL3-78B" ]; then
         --master_addr=127.0.0.1 \
         --nproc-per-node=$GPUS \
         --master_port=${MASTER_PORT} \
-        run.py --config scripts/academic_subject_eval/internvl3_78b_config.json --reuse
+        run.py --config ${CONFIG} --reuse
 fi
 
-if [ ${MODEL} == "chatgpt-4o-latest" ]; then
-    echo "chatgpt-4o-latest infer and eval"
-    python run.py --config scripts/academic_subject_eval/openai_config.json --api-nproc 4 --reuse
-fi
-
-if [ ${MODEL} == "claude-3-7-sonnet" ]; then
-    echo "claude-3-7-sonnet infer and eval"
-    python run.py --config scripts/academic_subject_eval/claude_config.json --api-nproc 4 --reuse
+if [[ ${MODEL} == "chatgpt-4o-latest" || ${MODEL} == "claude-3-7-sonnet" ]]; then
+    echo "${MODEL} infer and eval"
+    python run.py --config ${CONFIG} --api-nproc 4 --reuse
 fi

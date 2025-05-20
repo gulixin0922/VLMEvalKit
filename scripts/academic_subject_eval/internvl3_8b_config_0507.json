@@ -1,0 +1,44 @@
+{
+    "model": {
+        "sft_internvl3_plus_academic_v1_x3_8000": {
+            "class": "InternVLChat",
+            "model_path": "/mnt/hwfile/share_data/wangweiyun/share_swj/run_convert/sft_internvl3_plus_academic_v1_x3/8000",
+            "version": "V2.0",
+            "use_lmdeploy": false
+        },
+        "sft_internvl3_plus_academic_v1_x9_12000": {
+            "class": "InternVLChat",
+            "model_path": "/mnt/hwfile/share_data/wangweiyun/share_swj/run_convert/sft_internvl3_plus_academic_v1_x9/12000",
+            "version": "V2.0",
+            "use_lmdeploy": false
+        },
+        "sft_internvl3_remove10_plus_academic_v1_x3_8000": {
+            "class": "InternVLChat",
+            "model_path": "/mnt/hwfile/share_data/wangweiyun/share_swj/run_convert/sft_internvl3_remove10_plus_academic_v1_x3/8000",
+            "version": "V2.0",
+            "use_lmdeploy": false
+        }
+    },
+    "data": {
+        "hle": {
+            "class": "ImageShortQADataset",
+            "dataset": "hle"
+        },
+        "MMMU_DEV_VAL": {
+            "class": "MMMUDataset",
+            "dataset": "MMMU_DEV_VAL"
+        },
+        "MMMU_Pro_10c": {
+            "class": "MMMUProDataset",
+            "dataset": "MMMU_Pro_10c"
+        },
+        "MMSci_DEV_MCQ": {
+            "class": "ImageMCQDataset",
+            "dataset": "MMSci_DEV_MCQ"
+        },
+        "MedXpertQA_MM_test": {
+            "class": "MedXpertQA_MM_test",
+            "dataset": "MedXpertQA_MM_test"
+        }        
+    }
+}

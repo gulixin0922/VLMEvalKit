@@ -162,7 +162,8 @@ class ImageMCQDataset(ImageBaseDataset):
         "VisOnlyQA-VLMEvalKit": 'cf460a31d2acb8d3a7cecd0e69298bfa',
         '3DSRBench': '13a99f33164dc1b9faf0e8b8b01fd6f2',
         'MMCR': '9052635f2c3835bdb87755ef73564f5e',
-        'MMSci_DEV_MCQ': '71c82f81920a84526803574f719099a7',
+        # 'MMSci_DEV_MCQ': '71c82f81920a84526803574f719099a7',
+        'MMSci_DEV_MCQ': '865144aa866e29b251bdc7d63a735b6b',
         "MMVP": "8cb732b141a0cba5b42159df2839e557",
     }
 

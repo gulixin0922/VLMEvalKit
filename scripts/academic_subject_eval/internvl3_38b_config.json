@@ -1,0 +1,32 @@
+{
+    "model": {
+        "InternVL3-38B-MPO": {
+            "class": "InternVLChat",
+            "model_path": "/mnt/petrelfs/share_data/wangweiyun/share_internvl/InternVL3-38B-MPO",
+            "version": "V2.0",
+            "use_lmdeploy": true
+        }
+    },
+    "data": {
+        "hle": {
+            "class": "ImageShortQADataset",
+            "dataset": "hle"
+        },
+        "MMMU_DEV_VAL": {
+            "class": "MMMUDataset",
+            "dataset": "MMMU_DEV_VAL"
+        },
+        "MMMU_Pro_10c": {
+            "class": "MMMUProDataset",
+            "dataset": "MMMU_Pro_10c"
+        },
+        "MMSci_DEV_MCQ": {
+            "class": "ImageMCQDataset",
+            "dataset": "MMSci_DEV_MCQ"
+        },
+        "MedXpertQA_MM_test": {
+            "class": "MedXpertQA_MM_test",
+            "dataset": "MedXpertQA_MM_test"
+        }        
+    }
+}

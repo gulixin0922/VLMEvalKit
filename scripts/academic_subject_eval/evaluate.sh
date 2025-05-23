@@ -54,8 +54,8 @@ if [ ${MODEL} == "InternVL3-8B" ]; then
         run.py --config ${CONFIG} --reuse
 fi
 
-if [ ${MODEL} == "InternVL3-78B" ]; then
-    echo "InternVL3-78B infer and eval"
+if [[ ${MODEL} == "InternVL3-78B" || ${MODEL} == "InternVL3-38B" ]]; then
+    echo "InternVL3-78B or InternVL3-38B infer and eval"
     export USE_COT=0
     export TP=4
     torchrun \
